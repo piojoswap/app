@@ -4,18 +4,105 @@
 	<style>
 	body, html{height:100%}
 div{height:100%}
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+
+
+svg {
+    display: block;
+    font: 10.5em 'Montserrat';
+    width: 960px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+  stroke: #4D163D;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+  stroke: #840037;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+  stroke: #BD0034;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+  stroke: #BD0034;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+  stroke: #FDB731;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+  100% {stroke-dashoffset: -35%;}
+}
 	</style>
+	<script>
+	function changeiFrame() {
+  var e = document.getElementById("networkSelect");
+  var newSrc = e.options[e.selectedIndex].value;
+  document.getElementById("networkFrame").src=newSrc;
+}</script>
 <meta charset="utf-8">
 <title>Piojos Swap</title>
 </head>
 
 <body>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <th scope="row">
+		  <svg viewBox="0 0 960 300">
+  <symbol id="s-text">
+    <text text-anchor="middle" x="50%" y="80%">PIOJOSWAP</text>
+    <text text-anchor="middle" x="52%" y="80%">PIOJOSWAP</text>
+    
+  </symbol>
+
+  <g class = "g-ants">
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+    <use xlink:href="#s-text" class="text-copy"></use>
+  </g>
+</svg>
+		  The Deadliest Blood Sucking Leech on the Blockchain</th>
+    </tr>
+  </tbody>
+</table>
+<br/>
 <table width="100%" style="height:100%;" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
-      <th scope="row">Ethereum</th>
-      <td> <iframe style="height:100%;width:100%" src="https://app.uniswap.org/#/swap?chain=mainnet"></iframe></td>
+      <th scope="row">
+		<p>Network Select</p>
+		  <select id="networkSelect">
+  <option value="https://app.uniswap.org/#/swap?chain=mainnet">Ethereum</option>
+  <option value="https://pancakeswap.finance/swap">Binance</option>
+			    <option value="https://quickswap.exchange/#/swap">Polygon</option>
+</select>
+<button onClick="changeiFrame();">Change Network</button>
+		  
+		</th>
+      <td> <iframe id="networkFrame" style="height:100%;width:100%" src="https://app.uniswap.org/#/swap?chain=mainnet"></iframe></td>
     </tr>
   </tbody>
 </table>
